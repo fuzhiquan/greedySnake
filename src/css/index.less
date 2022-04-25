@@ -5,3 +5,30 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+#root {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 600px;
+    margin: 100px auto;
+    border: 10px solid;
+    border-radius: 45px;
+    padding: 20px;
+    .logo {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+    .stage {
+        flex: 1;
+        border: 1px solid;
+    }
+    .foot {
+        display: flex;
+        justify-content: space-between;
+        height: 100px;
+        line-height: 100px;
+        font-size: 20px;
+    }
+}
