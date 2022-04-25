@@ -1,3 +1,5 @@
+import GameContrl from "./gameContrl"
 import "./css/index.less"
 
-const x = "hello ts"
+const gameCtl = new GameContrl
+gameCtl.init()

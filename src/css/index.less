@@ -5,6 +5,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+ul, ol {
+    list-style-type: none;
+}
 
 #root {
     display: flex;
@@ -20,11 +23,32 @@
         line-height: 50px;
         text-align: center;
     }
-    .stage {
+    #stage {
+        position: relative;
         flex: 1;
+        background-color: #ccc;
         border: 1px solid;
+        #snake {
+            position: absolute;
+            display: flex;
+            li {
+                width: 10px;
+                height: 10px;
+                background-color: #000;
+                border: 1px solid #ccc;
+            }
+        }
+        #food {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            left: 100px;
+            top: 100px;
+            background-color: green;
+            border-radius: 50%;
+        }
     }
-    .foot {
+    #foot {
         display: flex;
         justify-content: space-between;
         height: 100px;
