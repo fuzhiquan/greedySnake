@@ -29,9 +29,9 @@ ul, ol {
         background-color: #ccc;
         border: 1px solid;
         #snake {
-            position: absolute;
             display: flex;
             li {
+                position: absolute;
                 width: 10px;
                 height: 10px;
                 background-color: #000;
@@ -46,6 +46,18 @@ ul, ol {
             top: 100px;
             background-color: green;
             border-radius: 50%;
+            animation: twinkle 0.6s linear infinite;
+        }
+        @keyframes twinkle {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0.5;
+            }
         }
     }
     #foot {

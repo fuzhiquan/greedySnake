@@ -1,10 +1,9 @@
 export default class ScorePanel {
     scoreEle: HTMLElement
     levelEle: HTMLElement
-
     maxScore: number
     maxLevel: number
-    constructor(maxScore: number = 10, maxLevel: number = 10) {
+    constructor(maxScore: number = 5, maxLevel: number = 10) {
         this.scoreEle = document.querySelector("#foot .score") as HTMLElement
         this.levelEle = document.querySelector("#foot .level") as HTMLElement
 
@@ -13,14 +12,26 @@ export default class ScorePanel {
     }
 
     init(): void {
-        this.scoreEle.textContent = "0"
-        this.levelEle.textContent = "1"
+        this.score = 0
+        this.level = 1
+    }
+
+    set score(score: number) {
+        this.scoreEle.textContent = `${score}`
+    }
+
+    set level(level: number) {
+        this.levelEle.textContent = `${level}`
+    }
+
+    get level(): number {
+        return parseInt(this.levelEle.textContent as string)
     }
 
     addScore(): void {
-        const score = parseInt(this.scoreEle.textContent as string)
-        const afterScore = score + 1
-        this.scoreEle.textContent = String(afterScore)
+        const score: number = parseInt(this.scoreEle.textContent as string)
+        const afterScore: number = score + 1
+        this.score = afterScore
 
         if(afterScore % this.maxScore === 0) {
             this.upLevel()
@@ -28,8 +39,8 @@ export default class ScorePanel {
     }
 
     upLevel(): void {
-        const level = parseInt(this.levelEle.textContent as string)
-        const afterLevel = level + 1
-        this.levelEle.textContent = String(afterLevel)
+        const level: number = parseInt(this.levelEle.textContent as string)
+        const afterLevel: number = level + 1
+        this.level = afterLevel
     }
 }
