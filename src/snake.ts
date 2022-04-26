@@ -3,11 +3,13 @@ export default class Snake {
     element: HTMLElement
     head: HTMLElement
     bodies: HTMLCollection
+    overEle: HTMLElement
 
     constructor() {
         this.element = document.getElementById("snake") as HTMLElement
         this.head = document.querySelector("#snake > li") as HTMLElement
         this.bodies = document.getElementById("snake")!.getElementsByTagName("li") as HTMLCollection
+        this.overEle = document.getElementById("over") as HTMLElement
     }
 
     getHeadPoint(): HeadPoint{
@@ -43,6 +45,8 @@ export default class Snake {
         const checkX = x != null && (x < 0 || x >= this.element.parentElement!.offsetWidth)
         const checkY = y != null && (y < 0 || y >= this.element.parentElement!.offsetHeight)
         if(checkX || checkY) {
+            const diff = this.element.parentElement!.offsetHeight / 2 - this.overEle.offsetHeight
+            this.overEle.style.top = `${Math.round(diff)}px`
             throw new Error("撞墙了")
         }
     }
